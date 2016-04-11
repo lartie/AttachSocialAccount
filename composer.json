@@ -1,0 +1,18 @@
+{
+    "name": "lartie/attach-social-account",
+    "description": "Пакет для подключения аккаунтов социальный сетей к пользователю для Laravel 5.2",
+    "keywords": ["social", "attach-social", "social-account", "laravel", "illuminate"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artie",
+            "email": "log.wil.log@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "LArtie\\AttachSocialAccount\\": "src"
+        }
+    }
+}
