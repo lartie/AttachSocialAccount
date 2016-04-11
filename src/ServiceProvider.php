@@ -13,8 +13,11 @@ class ServiceProvider extends SP
      */
     public function boot()
     {
-        $this->publishes([__DIR__ . '/config/' => config_path('/')], 'config');
-        $this->publishes([__DIR__ . '/database/' => base_path("database")], 'database');
+        $this->publishes([
+            __DIR__ . '/migrations' => base_path('/database/migrations'),
+        ]);
+
+        $this->registerBladeExtensions();
     }
 
     /**
@@ -25,5 +28,27 @@ class ServiceProvider extends SP
     public function register()
     {
         //
+    }
+
+    /**
+     * Register Blade extensions.
+     *
+     * @return void
+     */
+    protected function registerBladeExtensions()
+    {
+        $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
+
+        $blade->directive('providerExists', function ($expression) {
+            return "<?php if (Artie\\SocialAccounts\\Core\\Models\\SocialNetworks::providerExists{$expression}): ?>";
+        });
+
+        $blade->directive('providerNotExists', function ($expression) {
+            return "<?php if (!Artie\\SocialAccounts\\Core\\Models\\SocialNetworks::providerExists{$expression}): ?>";
+        });
+
+        $blade->directive('endCheckProvider', function () {
+            return "<?php endif; ?>";
+        });
     }
 }
