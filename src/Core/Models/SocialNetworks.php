@@ -1,12 +1,12 @@
 <?php
 
-namespace Artie\SocialAccounts\Core\Models;
+namespace LArtie\AttachSocialAccount\Core\Models;
 
-use Artie\SocialAccounts\Core\Exceptions\ColumnSocialNetworkNotFoundException;
+use LArtie\AttachSocialAccount\Core\Exceptions\ColumnSocialNetworkNotFoundException;
+use LArtie\AttachSocialAccount\Core\Exceptions\ProviderNotFoundException;
+use LArtie\AttachSocialAccount\Core\Exceptions\ShortNameNotFoundException;
+
 use Illuminate\Database\Eloquent\Model;
-use Artie\SocialAccounts\Core\Exceptions\ProviderNotFoundException;
-use Artie\SocialAccounts\Core\Exceptions\ShortNameNotFoundException;
-
 
 class SocialNetworks extends Model
 {

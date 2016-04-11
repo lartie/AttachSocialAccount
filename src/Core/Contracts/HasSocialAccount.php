@@ -1,15 +1,24 @@
 <?php
 
-namespace Artie\SocialAccounts\Core\Contracts;
+namespace LArtie\AttachSocialAccount\Core\Contracts;
 
 use Illuminate\Database\Eloquent\Model;
 
 interface HasSocialAccount
 {
     /**
+     * Получить все пивоты (социальные аккаунты для) для текущего пользователя
      * @return mixed
      */
     public function socialAccounts();
+
+    /**
+     *  Получить пивот (социальный аккаунт) по провайдеру
+     * @param $provider
+     * @param array $fields
+     * @return array
+     */
+    public function getSocialAccountByProvider($provider, $fields = ['avatar', 'uid', 'token', 'nickname', 'name', 'email',]);
 
     /**
      * Получить все аккаунты социальных сетей в контейнере

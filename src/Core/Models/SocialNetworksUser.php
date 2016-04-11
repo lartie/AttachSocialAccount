@@ -1,6 +1,6 @@
 <?php
 
-namespace Artie\SocialAccounts\Core\Models;
+namespace LArtie\AttachSocialAccount\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

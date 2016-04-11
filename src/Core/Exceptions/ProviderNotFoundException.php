@@ -1,6 +1,6 @@
 <?php
 
-namespace Artie\SocialAccounts\Core\Exceptions;
+namespace LArtie\AttachSocialAccount\Core\Exceptions;
 
 
 class ProviderNotFoundException extends SocialNetworkException

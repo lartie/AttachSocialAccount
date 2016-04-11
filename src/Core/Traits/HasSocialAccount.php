@@ -1,9 +1,9 @@
 <?php
 
-namespace Artie\SocialAccounts\Core\Traits;
+namespace LArtie\AttachSocialAccount\Core\Traits;
 
 use Illuminate\Support\Str;
-use Artie\SocialAccounts\Core\Models\SocialNetworks;
+use LArtie\AttachSocialAccount\Core\Models\SocialNetworks;
 
 /**
  * Class HasSocialAccount
