@@ -53,8 +53,8 @@ And also run migrations.
 Include `HasSocialAccount` trait and also implement `HasSocialAccount` contract inside your `User` model.
 
 ```php
-use LArtie\AttachSocialAccount\Traits\HasSocialAccount;
-use LArtie\AttachSocialAccount\Contracts\HasSocialAccount as HasSocialAccountContract;
+use LArtie\AttachSocialAccount\Core\Traits\HasSocialAccount;
+use LArtie\AttachSocialAccount\Core\Contracts\HasSocialAccount as HasSocialAccountContract;
 
 class User extends Authenticatable implements HasSocialAccountContract
 {
