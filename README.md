@@ -1,10 +1,18 @@
 # Attach Social Account For Laravel 5.2
 
+[![Latest Stable Version](https://poser.pugx.org/lartie/attach-social-account/v/stable)](https://packagist.org/packages/lartie/attach-social-account)
+[![Total Downloads](https://poser.pugx.org/lartie/attach-social-account/downloads)](https://packagist.org/packages/lartie/attach-social-account)
+[![Latest Unstable Version](https://poser.pugx.org/lartie/attach-social-account/v/unstable)](https://packagist.org/packages/lartie/attach-social-account)
+[![License](https://poser.pugx.org/lartie/attach-social-account/license)](https://packagist.org/packages/lartie/attach-social-account)
+[![composer.lock](https://poser.pugx.org/lartie/attach-social-account/composerlock)](https://packagist.org/packages/lartie/attach-social-account)
+
 - [Installation](#installation)
     - [Composer](#composer)
     - [Service Provider](#service-provider)
     - [Config File And Migrations](#config-file-and-migrations)
     - [HasSocialAccount Trait And Contract](#hassocialaccount-trait-and-contract)
+- [Usage](#usage)
+    - [Creating Social Network](#creating-social-network)
 - [License](#license)
 
 ## Installation
@@ -62,6 +70,83 @@ class User extends Authenticatable implements HasSocialAccountContract
 ```
 
 And that's it!
+
+## Usage
+
+```php
+ $user = User::first();
+ 
+ $vkData = [
+     'token' => 'token',
+     'uid' => 'user_id',
+     'nickname' => 'username',
+     'name' => 'first name and last name',
+     'email' => 'example@gmail.com',
+     'avatar' => 'link_to',
+ ];
+```
+
+### Creating Social Network
+```php
+$socialNetwork = SocialNetworks::create([
+    'provider' => 'vkontakte', 
+    'short_name' => 'vk'
+]);
+```
+
+### Attach Social Account
+```php
+$user->attachSocialAccountById($socialNetwork->id, $vkData);
+```
+or
+```php
+$user->attachSocialAccountByShortName('vk', $vkData);
+```
+or
+```php
+$user->attachSocialAccountByProvider('vkontakte', $vkData);
+```
+
+### Detach Social Account
+```php
+$user->detachSocialAccountById($socialNetwork->id);
+```
+or
+```php
+$user->detachSocialAccountByShortName('vkontakte');
+```
+or
+```php
+$user->detachSocialAccountByProvider('vk');
+```
+
+### Checking
+
+```php
+$user->hasSocialAccountById($socialNetwork->id);
+```
+or
+```php
+$user->hasSocialAccountByShortName('vk');
+```
+or
+```php
+$user->hasSocialAccountByProvider('vkontakte');
+```
+
+### Blade Extensions
+
+```php
+@providerExists('vkontakte') {
+// see detach button, etc..
+}
+
+@providerNotExists('vkontakte') {
+// see attach button, etc.. 
+}
+```
+
+> For more information visit trait `HasSocialAccount` or  contract `HasSocialAccount`
 
 ## License
 
