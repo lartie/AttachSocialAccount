@@ -2,8 +2,6 @@
 
 namespace LArtie\AttachSocialAccount\Core\Contracts;
 
-use Illuminate\Database\Eloquent\Model;
-
 interface HasSocialAccount
 {
     /**
