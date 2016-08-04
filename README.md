@@ -13,6 +13,10 @@
     - [HasSocialAccount Trait And Contract](#hassocialaccount-trait-and-contract)
 - [Usage](#usage)
     - [Creating Social Network](#creating-social-network)
+    - [Attach Social Account](#attach-social-account)
+    - [Detach Social Account](#detach-social-account)
+    - [Checking](#checking)
+    - [Blade Extensions](#blade-extensions)
 - [License](#license)
 
 ## Installation
@@ -113,11 +117,11 @@ $user->detachSocialAccountById($socialNetwork->id);
 ```
 or
 ```php
-$user->detachSocialAccountByShortName('vkontakte');
+$user->detachSocialAccountByShortName('vk');
 ```
 or
 ```php
-$user->detachSocialAccountByProvider('vk');
+$user->detachSocialAccountByProvider('vkontakte');
 ```
 
 ### Checking
